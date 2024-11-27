@@ -1,16 +1,21 @@
 package presentacion;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
 
 
 public class FParcial extends JFrame implements ActionListener{
 	private PFormulario pFormulario;
 	private PLienzo pLienzo;
+	private JPanel blanco;
 	
 	
 	
@@ -29,10 +34,9 @@ public class FParcial extends JFrame implements ActionListener{
 		this.setLayout(new BorderLayout());
 		this.pLienzo = new PLienzo();
 		this.pFormulario = new PFormulario(this);
-		
 		this.add(this.pFormulario, BorderLayout.WEST);
-		
 		this.add(this.pLienzo, BorderLayout.CENTER);
+		
 		this.setVisible(true);
 	}
 
@@ -41,17 +45,22 @@ public class FParcial extends JFrame implements ActionListener{
 
 		JButton botonOprimido = (JButton)e.getSource();
 		if(botonOprimido.getText().equals("Cuadrado")) {
+			
+			int tR = Integer.parseInt(this.pFormulario.gettR().getText());
+			int tG =Integer.parseInt(this.pFormulario.gettG().getText());
+			int tB =Integer.parseInt(this.pFormulario.gettB().getText());
+			this.pLienzo.setColor(tR, tG, tB);
 			this.pLienzo.setCuadrado(true);
-			this.pLienzo.colores.add(Integer.parseInt(this.pFormulario.gettR().getText()));
-			this.pLienzo.colores.add(Integer.parseInt(this.pFormulario.gettG().getText()));
-			this.pLienzo.colores.add(Integer.parseInt(this.pFormulario.gettB().getText()));
 		}
 		else {
-			this.pLienzo.setCuadrado(false);
-			this.pLienzo.colores.add(Integer.parseInt(this.pFormulario.gettR().getText()));
-			this.pLienzo.colores.add(Integer.parseInt(this.pFormulario.gettG().getText()));
-			this.pLienzo.colores.add(Integer.parseInt(this.pFormulario.gettB().getText()));}}
 			
+			int tR = Integer.parseInt(this.pFormulario.gettR().getText());
+			int tG =Integer.parseInt(this.pFormulario.gettG().getText());
+			int tB =Integer.parseInt(this.pFormulario.gettB().getText());
+			this.pLienzo.setColor(tR, tG, tB);
+			this.pLienzo.setCuadrado(false);
+		}
+		this.pLienzo.repaint();}
 			
 	public static void main(String[] args) {
 		new FParcial();

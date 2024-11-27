@@ -11,8 +11,6 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-import control.Controlador;
-
 public class PFormulario extends JPanel implements ActionListener{
 	/**
 	 * 
@@ -23,7 +21,6 @@ public class PFormulario extends JPanel implements ActionListener{
 	private JTextField tB;
 	private JButton bCuadrado;
 	private JButton bCirculo;
-	private Controlador controlador;
 	private FParcial fParcial;
 	private PLienzo pLienzo;
 
@@ -41,7 +38,6 @@ public class PFormulario extends JPanel implements ActionListener{
 		this.bCuadrado.addActionListener(this);
 		this.bCirculo = new JButton("Circulo");
 		this.bCirculo.addActionListener(this);
-		this.controlador = new Controlador(this);
 		this.setLayout(new GridLayout(4, 2, 10, 10));
 		this.add(new JLabel("R"));
 		this.add(this.tR);
@@ -81,26 +77,9 @@ public class PFormulario extends JPanel implements ActionListener{
 	}
 	
 	
-	public void colores() {
-		this.controlador.colores(this.tR.getText(), this.tG.getText(), this.tB.getText());
-		
-	}
-
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
-
-		JButton botonOprimido = (JButton)e.getSource();
-		if(botonOprimido.getText().equals("Cuadrado")) {
-			this.pLienzo.setCuadrado(true);
-			this.pLienzo.colores.add(Integer.parseInt(this.gettR().getText()));
-			this.pLienzo.colores.add(Integer.parseInt(this.gettG().getText()));
-			this.pLienzo.colores.add(Integer.parseInt(this.gettB().getText()));
-		}
-		else {
-			this.pLienzo.setCuadrado(false);
-			this.pLienzo.colores.add(Integer.parseInt(this.gettR().getText()));
-			this.pLienzo.colores.add(Integer.parseInt(this.gettG().getText()));
-			this.pLienzo.colores.add(Integer.parseInt(this.gettB().getText()));}}
+		fParcial.actionPerformed(e);}
 			
 	
 
