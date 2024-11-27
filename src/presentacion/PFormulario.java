@@ -86,22 +86,22 @@ public class PFormulario extends JPanel implements ActionListener{
 		
 	}
 
-	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
-		colores();
+
 		JButton botonOprimido = (JButton)e.getSource();
-	        
-	        if(botonOprimido.getText().equals("Cuadrado") )
-	        {
-	            pLienzo.setCuadradro(true);
-	        }
-	        else if(botonOprimido.getText().equals("Circulo")  )
-	        {
-	        	pLienzo.setCuadradro(false);
-	    }	}
-		
-	
+		if(botonOprimido.getText().equals("Cuadrado")) {
+			this.pLienzo.setCuadrado(true);
+			this.pLienzo.colores.add(Integer.parseInt(this.gettR().getText()));
+			this.pLienzo.colores.add(Integer.parseInt(this.gettG().getText()));
+			this.pLienzo.colores.add(Integer.parseInt(this.gettB().getText()));
+		}
+		else {
+			this.pLienzo.setCuadrado(false);
+			this.pLienzo.colores.add(Integer.parseInt(this.gettR().getText()));
+			this.pLienzo.colores.add(Integer.parseInt(this.gettG().getText()));
+			this.pLienzo.colores.add(Integer.parseInt(this.gettB().getText()));}}
+			
 	
 
 }

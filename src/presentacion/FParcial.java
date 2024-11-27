@@ -8,7 +8,7 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 
 
-public class FParcial extends JFrame{
+public class FParcial extends JFrame implements ActionListener{
 	private PFormulario pFormulario;
 	private PLienzo pLienzo;
 	
@@ -36,8 +36,23 @@ public class FParcial extends JFrame{
 		this.setVisible(true);
 	}
 
-	
-	
+	public void actionPerformed(ActionEvent e) {
+		// TODO Auto-generated method stub
+
+		JButton botonOprimido = (JButton)e.getSource();
+		if(botonOprimido.getText().equals("Cuadrado")) {
+			this.pLienzo.setCuadrado(true);
+			this.pLienzo.colores.add(Integer.parseInt(this.pFormulario.gettR().getText()));
+			this.pLienzo.colores.add(Integer.parseInt(this.pFormulario.gettG().getText()));
+			this.pLienzo.colores.add(Integer.parseInt(this.pFormulario.gettB().getText()));
+		}
+		else {
+			this.pLienzo.setCuadrado(false);
+			this.pLienzo.colores.add(Integer.parseInt(this.pFormulario.gettR().getText()));
+			this.pLienzo.colores.add(Integer.parseInt(this.pFormulario.gettG().getText()));
+			this.pLienzo.colores.add(Integer.parseInt(this.pFormulario.gettB().getText()));}}
+			
+			
 	public static void main(String[] args) {
 		new FParcial();
 	}

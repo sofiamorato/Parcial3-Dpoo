@@ -10,7 +10,7 @@ import java.util.Observer;
 import javax.swing.JPanel;
 
 public class PLienzo extends JPanel implements Observer{
-	private ArrayList<Integer> colores;
+	public ArrayList<Integer> colores;
 	public boolean cuadrado;
 	
 	
@@ -20,23 +20,23 @@ public class PLienzo extends JPanel implements Observer{
 	}
 
 
-	public void setCuadradro(boolean cuadradro) {
+	public void setCuadrado(boolean cuadradro) {
 		this.cuadrado = cuadradro;
 	}
 
 
 	public void paint(Graphics g) {
-		if (isCuadrado() == true) {
+		if (isCuadrado() == false) {
 		Graphics2D g2d = (Graphics2D)g;
 		g2d.setColor(new Color(255, 255, 255));
 		g2d.fillRect(0, 0, this.getWidth(), this.getHeight());
-		g2d.setColor(new Color(colores.get(0), colores.get(1), colores.get(2)));
+		g2d.setColor(new Color(255, 0, 0));
 		g2d.fillRect(100, 100, 300, 300);
 	} else {
 		Graphics2D g2d = (Graphics2D)g;
 		g2d.setColor(new Color(255, 255, 255));
 		g2d.fillRect(0, 0, this.getWidth(), this.getHeight());
-		g2d.setColor(new Color(colores.get(0), colores.get(1), colores.get(2)));
+		g2d.setColor(new Color(0, 128, 0));
 		g2d.fillOval(100, 100, 300, 300);
 	}}
 
